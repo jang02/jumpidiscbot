@@ -7,9 +7,10 @@ const pingRole = process.env.ROLE;
 
 client.login(process.env.TOKEN);
 
-const channel = client.channels.fetch(pingChannel);
+
 
 client.on('ready', () => {
+    const channel = client.channels.fetch(pingChannel);
     console.log(`Logged in as ${client.user.tag}!`);
     channel.then(channel => channel.send("Bot online"));
     channel.catch(console.error);
@@ -22,6 +23,7 @@ rule.minute = [50];
 rule.tz = 'UTC';
 
 const job = schedule.scheduleJob(rule, function () {
+    const channel = client.channels.fetch(pingChannel);
     channel.then(channel => channel.send("<@&" + pingRole + "> DOOM IN 10 MINUTES"));
     channel.catch(console.error);
 });
