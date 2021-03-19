@@ -1,0 +1,16 @@
+{
+  "name": "doompinger",
+  "version": "1.0.0",
+  "description": "Pings all users that want to be notified for doom spawns",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jumpi",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "node-schedule": "^2.0.0"
+  }
+}
