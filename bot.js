@@ -4,17 +4,17 @@ const schedule = require('node-schedule');
 
 const pingChannel = process.env.CHANNEL;
 const pingRole = process.env.ROLE;
+let channel;
 
 client.login(process.env.TOKEN);
 
 
 
 client.on('ready', () => {
-    const channel = client.channels.fetch(pingChannel);
     console.log(`Logged in as ${client.user.tag}!`);
-    channel.then(channel => channel.send("Bot online"));
+    channel = client.channels.fetch(pingChannel);
+    channel.then(channel => channel.send("last test"));
     channel.catch(console.error);
-    console.log(pingChannel + " " + pingRole + "" + process.env.TOKEN);
 });
 
 const rule = new schedule.RecurrenceRule();
@@ -23,7 +23,6 @@ rule.minute = [50];
 rule.tz = 'UTC';
 
 const job = schedule.scheduleJob(rule, function () {
-    const channel = client.channels.fetch(pingChannel);
     channel.then(channel => channel.send("<@&" + pingRole + "> DOOM IN 10 MINUTES"));
     channel.catch(console.error);
 });
