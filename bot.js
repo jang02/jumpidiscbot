@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const schedule = require('node-schedule');
-require("dotenv").config();
 
 const pingChannel = process.env.CHANNEL;
 const pingRole = process.env.ROLE;
@@ -14,6 +13,7 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     channel.then(channel => channel.send("Bot online"));
     channel.catch(console.error);
+    console.log(pingChannel + " " + pingRole + "" + process.env.TOKEN);
 });
 
 const rule = new schedule.RecurrenceRule();
