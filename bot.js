@@ -8,13 +8,9 @@ let channel;
 
 client.login(process.env.TOKEN);
 
-
-
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     channel = client.channels.fetch(pingChannel);
-    channel.then(channel => channel.send("last test"));
-    channel.catch(console.error);
 });
 
 const rule = new schedule.RecurrenceRule();
