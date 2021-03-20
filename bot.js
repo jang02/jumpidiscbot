@@ -22,6 +22,7 @@ rule.tz = 'UTC';
 const job = schedule.scheduleJob(rule, function () {
     channel.then(channel => channel.send("<@&" + pingRole + "> DOOM IN 10 MINUTES"));
     channel.catch(console.error);
+    console.log("Pinged everyone for doom at: "+ Date().toString());
 });
 
 
