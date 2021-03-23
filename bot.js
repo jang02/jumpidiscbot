@@ -14,7 +14,7 @@ client.on('ready', () => {
 });
 
 const rule = new schedule.RecurrenceRule();
-rule.hour = [11, 19];
+rule.hour = [12, 20];
 rule.minute = 50;
 rule.second = 0;
 rule.tz = 'UTC';
