@@ -21,7 +21,7 @@ const job = schedule.scheduleJob(rule, function () {
     let channel;
     channel = client.channels.fetch(pingChannel);
     channel.then(channel => channel.send("<@&" + pingRole + "> DOOM IN 10 MINUTES"));
-    channel.catch(console.error);
+    channel.catch(e => console.error(e));
     console.log("Pinged everyone for doom at: "+ Date().toString());
 });
 
